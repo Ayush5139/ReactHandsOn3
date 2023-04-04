@@ -1,0 +1,58 @@
+body{
+    background-image: linear-gradient(rgb(183, 183, 239),pink,white);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.title{
+    display: block;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.label{
+    font-size: 50px;
+ 
+    margin: 10px;
+    margin-bottom: 500px;
+}
+
+.input{
+    margin: 10px;
+    height: 50px;
+    width: 300px;
+    background-color: aqua;
+    border-radius: 30px;
+}
+
+.div2{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7%;
+    font-weight: lighter;
+    font-variant: small-caps;
+    background-color: aqua;
+    justify-content: space-around;
+    color: black;
+    border: 5px black solid;
+}
+
+.h1{
+    margin: 2%;
+    background-color: pink;
+    border: 1px black solid;
+    padding: 2%;
+    border-radius: 25px;
+}
+
+.submit{
+    font-size: 30px;
+    padding: 0.5%;
+    width: 300px;
+    border-radius: 25px;
+    background-color: aqua;
+}
+
+.submit:hover{
+    background-color: aliceblue;
+}

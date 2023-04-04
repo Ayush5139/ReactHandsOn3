@@ -1,15 +1,22 @@
+import { click } from '@testing-library/user-event/dist/click'
 import React, { Component } from 'react'
 import './Form.css'
+import FormDis from './FormDis'
 
 export default class Form extends Component {
     state = {
         name: "",
         department: "",
-        rating: []
+        rating: [],
+        array : [],
+        click : true
     }
 
     Change = (e) => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    CangeClick = () =>{
+        this.setState({click : !this.state.click})
     }
 
     Submit = () => {
@@ -18,14 +25,17 @@ export default class Form extends Component {
             department: this.state.dept,
             rating: this.state.rate
         }
-        const array1 = this.state.rating
-        array1.push(NewObject)
-        this.setState({ [this.state.data]: array1 })
-        console.log(this.state.rate)
+        this.state.array.push(NewObject)
+
+        this.setState({
+            array:this.state.array,
+            click:false
+        })
     }
     render() {
         return (
             <div> <p className='title'>Employee Feedback Form</p>
+            {this.state.click ?
                 <>
                     <label className='label'>Name:</label>
                     <input className='input' type={'text'} placeholder='Name' name='name' onChange={this.Change} /> <br></br>
@@ -34,14 +44,9 @@ export default class Form extends Component {
                     <label className='label'>Rating:</label>
                     <input className='input' type={'number'} placeholder='rating' name='rate' onChange={this.Change} /> <br></br>
                     <button onClick={this.Submit} className='submit'>Submit</button>
-                </>
-                <div className='div2'>
-                    {this.state.rating.map((item, index) => {
-                        return (
-                            <h1 key={index} className='h1'>Name : {item.name} | Department : {item.department} | Rating : {item.rating}</h1>
-                        )
-                    })}
-                </div>
+                </>:
+                <FormDis value = {this.state.array} toggl = {this.CangeClick}/>
+            }
             </div>
         )
     }
